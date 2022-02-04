@@ -8,7 +8,7 @@ export const runBackup = functions.pubsub
     const client = new firestore.v1.FirestoreAdminClient();
 
     const projectId = process.env.GCP_PROJECT || process.env.GCLOUD_PROJECT;
-    const databaseName = client.databasePath(projectId, 'default');
+    const databaseName = client.databasePath(projectId, '(default)');
 
     await client.exportDocuments({
       name: databaseName,
